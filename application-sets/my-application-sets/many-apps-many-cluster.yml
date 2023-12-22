@@ -14,8 +14,7 @@ spec:
               directories:
                 - path: applicationset/example-apps/*
           # cluster generator, 'child' #2
-          - clusters:
-              selector: 'all'
+          - clusters: {}
   template:
     metadata:
       name: '{{path.basename}}-{{name}}'
@@ -28,10 +27,10 @@ spec:
       destination:
         server: '{{server}}'
         namespace: '{{path.basename}}'
-syncPolicy:
-  automated: 
-    prune: true
-    selfHeal: true
-  syncOptions:
-    - CreateNamespace=true
-  
+      syncPolicy:
+        automated: 
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true  
+        
