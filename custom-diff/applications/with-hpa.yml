@@ -7,7 +7,10 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-
+  ignoreDifferences:
+      namespace: default
+      jsonPointers:
+        - /spec/replicas
   source:
     repoURL: https://github.com/codefresh-contrib/gitops-cert-level-2-examples.git
     targetRevision: HEAD
